@@ -1,0 +1,94 @@
+.input-container {
+  position: relative;
+  height: 3rem;
+}
+
+.input-container:not(.disabled):not(.invalid) .input-container__input {
+  padding-right: calc(0.75rem - 0.6px);
+  padding-left: calc(0.75rem - 0.6px);
+
+  border: 1.6px solid #c7c5c5;
+  border-radius: 4px;
+}
+
+.input-container:not(.disabled):not(.invalid):hover .input-container__input {
+  border: 1.6px solid #777777;
+}
+
+.input-container__label {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+
+  color: #757575;
+  font-size: 0.9rem;
+
+  transform: translateY(-50%);
+  transition: top 250ms, left 250ms, font-size 450ms, transform 250ms,
+    color 250ms;
+  pointer-events: none;
+}
+
+.input-container__input {
+  height: 100%;
+  width: 100%;
+
+  background: #ffffff;
+  color: #000;
+  font-size: 14px;
+
+  padding-left: 0;
+}
+
+.input-container__input:not(:placeholder-shown) + .input-container__label,
+.input-container__input:focus + .input-container__label {
+  top: 0;
+  left: calc(0.75rem / 2);
+  padding: 0 5px;
+
+  background-color: #fff;
+  font-size: 0.75rem;
+}
+
+.input-container__input:not(.invalid):not(.disabled):focus {
+  border-color: #777777;
+}
+
+.input-container__input:required ~ .input-container__label::after {
+  content: "*";
+}
+
+.input-container__input.invalid + .input-container__label {
+  color: #c20606;
+}
+
+.input-container__input.invalid {
+  border: 1.6px solid #e20909 !important;
+}
+
+.input-container__input.disabled {
+  color: #757575;
+}
+
+.input-container__input-error {
+  position: absolute;
+  bottom: -0.8rem;
+  left: 0;
+
+  font-size: 0.8rem;
+  color: red;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.input-container__input-error.visible {
+  transition: opacity 250ms, top 250ms;
+  animation: falling-down 250ms ease-in forwards;
+}
+
+@keyframes falling-down {
+  to {
+    opacity: 1;
+    bottom: -1.1rem;
+  }
+}

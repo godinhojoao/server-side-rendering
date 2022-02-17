@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/pages/index.css">
+  <title>Listar usuários</title>
+</head>
+
+<body>
+
+  <header></header>
+  <main class="dashboard">
+    <%- include('../partials/menu'); %>
+
+    <section class="dashboard__profiles">
+      <% users.forEach(function(user) { %>
+        <div class="dashboard__profiles__card">
+          <img
+            class="dashboard__profiles__card__avatar"
+            src="<%=user.avatar%>" alt="dale">
+          <footer class="dashboard__profiles__card__footer">
+            <strong><%=user.name%></strong>
+            <p><%=user.email%></p>
+          </footer>
+        </div>
+        <% }); %>
+    </section>
+
+  </main>
+  <footer></footer>
+</body>
+
+</html>

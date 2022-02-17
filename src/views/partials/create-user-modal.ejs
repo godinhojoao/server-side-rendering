@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles/partials/create-user-modal.css">
+  <link rel="stylesheet" href="/styles/components/input.css">
+  <link rel="stylesheet" href="/styles/components/button.css">
+</head>
+
+<body>
+  <div class="create-user-modal">
+    <h3 class="create-user-modal__title">Cadastro de usuários</h3>
+
+    <form class="create-user-modal__form" novalidate>
+
+      <div class="input-container name">
+        <input
+          type="text"
+          placeholder=" "
+          autocomplete="off"
+          class="input-container__input"
+          name="name"
+          required>
+        <label class="input-container__label">Nome</label>
+        <p class="input-container__input-error name-required-error">
+          Nome é obrigatório
+        </p>
+      </div>
+
+      <div class="input-container email">
+        <input
+          type="email"
+          placeholder=" "
+          autocomplete="off"
+          class="input-container__input"
+          name="email"
+          required>
+        <label class="input-container__label">E-mail</label>
+        <p class="input-container__input-error email-required-error">
+          E-mail é obrigatório
+        </p>
+        <p class="input-container__input-error email-validation-error">
+          E-mail inválido
+        </p>
+      </div>
+
+      <input
+        class="create-user-modal__form__input"
+        type="file" name="avatar"
+        accept="image/png, image/jpeg">
+      </form>
+
+      <button class="create-user-modal__button button">Criar usuário</button>
+  </div>
+
+  <script src="/scripts/create-user-modal.js"></script>
+</body>
+
+</html>
