@@ -13,22 +13,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   animation: up-down-animation .5s linear;
 }
 
-.dashboard__profiles__card__avatar {
-  height: 10rem;
-  width: 10rem;
-  border-radius: 50%;
-  object-fit: cover;
-  background-color: #c9c9c9;
-  margin-bottom: 1.5rem;
-  box-shadow: 1px 1px 4px 1px #d2dff0;
-  animation: scale-animation 1s ease-in-out;
+.dashboard__profiles__card__button {
+  width: 50% !important;
+  height: 30px;
 }
 
-.dashboard__profiles__card__footer {
+.dashboard__profiles__card__content {
   text-align: center;
+}
+
+.scheduled {
+  color: #4646bb;
+}
+
+.done {
+  color: #1e751e;
 }
 
 @keyframes scale-animation {

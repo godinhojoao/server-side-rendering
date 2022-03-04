@@ -1,4 +1,4 @@
-.create-user-modal {
+.create-task-modal {
   height: 80%;
   width: 80%;
 
@@ -13,12 +13,12 @@
   color: #5378ac;
 }
 
-.create-user-modal__title {
+.create-task-modal__title {
   font-size: 1.6rem;
   font-weight: bold;
 }
 
-.create-user-modal__form {
+.create-task-modal__form {
   width: 80%;
   height: 60%;
 

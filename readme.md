@@ -14,14 +14,14 @@
 
 # Screenshots
 
-## Lista de usuários
+## Lista de atividades
 - Em breve
 
-## Cadastro de usuários
+## Cadastro de atividades
 - Em breve
 
-## Deletando usuários
+## Deletando atividades
 - Em breve
 
-## Editando usuários
+## Editando atividades
 - Em breve
