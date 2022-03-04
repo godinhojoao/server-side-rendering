@@ -14,7 +14,9 @@
 
 <body>
   <div class="create-task-modal">
-    <h3 class="create-task-modal__title">Cadastro de atividades</h3>
+    <h3 class="create-task-modal__title">
+      <%= locals.task ? 'Editar atividade' : 'Cadastro de atividades'%>
+    </h3>
 
     <form class="create-task-modal__form" novalidate>
 
@@ -25,21 +27,30 @@
           autocomplete="off"
           class="input-container__input"
           name="name"
-          required>
+          required
+          value="<%= locals.task ? locals.task.name : ''%>">
         <label class="input-container__label">Nome</label>
-        <p class="input-container__input-error name-required-error">
-          Nome é obrigatório
-        </p>
       </div>
 
       <div class="input-container status">
         <select class="select" name="status">
-          <option value="scheduled" selected>Agendada</option>
-          <option value="done">Concluída</option>
+          <option
+            class="<%= locals.task && locals.task.status === 'scheduled' ? 'selected' : ''%>"
+            value="scheduled">
+            Agendada
+          </option>
+          <option
+            class="<%= locals.task && locals.task.status === 'done' ? 'selected' : ''%>"
+            value="done">
+            Concluída
+          </option>
         </select>
       </div>
 
-      <button class="create-task-modal__button button">Criar atividade</button>
+      <button
+        class="create-task-modal__button button <%=locals.task ? 'edit-button' : 'create-button'%>">
+        <%=locals.task  ? 'Editar atividade' : 'Criar atividade'%>
+      </button>
   </div>
 
   <script src="/scripts/create-task-modal.js"></script>

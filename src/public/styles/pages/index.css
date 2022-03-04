@@ -17,9 +17,26 @@
   animation: up-down-animation .5s linear;
 }
 
-.dashboard__profiles__card__button {
-  width: 50% !important;
-  height: 30px;
+.dashboard__profiles__card__icon {
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+}
+
+.dashboard__profiles__card__icon--remove-icon {
+  right: 10px;
+}
+
+.dashboard__profiles__card__icon--remove-icon:hover path {
+  fill: #c40808;
+}
+
+.dashboard__profiles__card__icon--edit-icon:hover path {
+  fill: #222281;
+}
+
+.dashboard__profiles__card__icon--edit-icon {
+  right: 35px;
 }
 
 .dashboard__profiles__card__content {

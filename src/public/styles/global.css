@@ -41,13 +41,3 @@ body {
   display: grid;
   grid-template-columns: 0.4fr 1.6fr;
 }
-
-/* .overlay {
-  z-index: 9;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: #24242462;
-} */

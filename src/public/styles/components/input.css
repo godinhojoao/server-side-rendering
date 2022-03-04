@@ -70,22 +70,6 @@
   color: #757575;
 }
 
-.input-container__input-error {
-  position: absolute;
-  bottom: -0.8rem;
-  left: 0;
-
-  font-size: 0.8rem;
-  color: red;
-  white-space: nowrap;
-  opacity: 0;
-}
-
-.input-container__input-error.visible {
-  transition: opacity 250ms, top 250ms;
-  animation: falling-down 250ms ease-in forwards;
-}
-
 @keyframes falling-down {
   to {
     opacity: 1;
