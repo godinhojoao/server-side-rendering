@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -32,12 +32,24 @@ body {
   color: white;
   background-color: #5378ac;
   overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-.dashboard {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 0.4fr 1.6fr;
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e5eaf1;
+  border-radius: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 14px;
+  background: #04415e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0e2b53;
 }

@@ -6,7 +6,7 @@
 }
 
 .dashboard__profiles__card {
-  max-height: 18rem;
+  height: 14rem;
   border-radius: 6px;
   background-color: rgba(202, 202, 202, 0.514);
   display: flex;

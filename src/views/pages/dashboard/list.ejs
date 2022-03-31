@@ -6,16 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/global.css">
-  <link rel="stylesheet" href="/styles/pages/index.css">
+  <link rel="stylesheet" href="/styles/pages/dashboard/index.css">
+  <link rel="stylesheet" href="/styles/pages/dashboard/list.css">
   <link rel="stylesheet" href="/styles/components/button.css">
-  <title>Listar atividades</title>
+  <title>Tasks App - List</title>
 </head>
 
 <body>
-
-  <header></header>
   <main class="dashboard">
-    <%- include('../partials/menu'); %>
+    <%- include('../../partials/menu'); %>
       <section class="dashboard__profiles">
         <% tasks.forEach(function(task) { %>
           <div class="dashboard__profiles__card" id="<%=task.id%>">
