@@ -1,15 +1,17 @@
-const TaskModel = require('./../config/Task');
+const db = require('../config/database')
+const TaskSchema = db.Schema({
+  name: { type: "String" },
+  status: { type: "String" },
+  user: {
+    type: db.Schema.Types.ObjectId,
+    ref: 'User'
+  }
+});
+
+const TaskModel = db.model("Task", TaskSchema);
 
 class Task {
   constructor() { }
-
-  async getAll() {
-    try {
-      return await TaskModel.find({});
-    } catch (error) {
-      return error;
-    }
-  }
 
   async getOne(id) {
     try {
@@ -32,25 +34,26 @@ class Task {
   async update(id, task) {
     try {
       const updatedTask = await TaskModel.findByIdAndUpdate(id, task, { new: true });
+      let error = null;
 
-      if (!updatedTask) { return { status: 404, message: 'task not found!' }; }
+      if (!updatedTask) { error = { status: 404, message: 'task not found' } }
 
-      return updatedTask;
+      return [updatedTask, error];
     } catch (error) {
-      return error;
+      return [null, error];
     }
   }
 
   async delete(id) {
     try {
       const task = await TaskModel.findByIdAndDelete(id);
-      console.log('task', task)
+      let error = null;
 
-      if (!task) { return { status: 404, message: 'task not found!' }; }
+      if (!task) { error = { status: 404, message: 'task not found' } }
 
-      return task;
+      return [task, error];
     } catch (error) {
-      return error;
+      return [null, error];
     }
   }
 }

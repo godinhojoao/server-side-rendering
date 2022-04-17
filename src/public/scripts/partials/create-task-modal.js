@@ -1,6 +1,8 @@
 (function () {
   const submitButton = document.querySelector('.create-task-modal__button');
   const buttonType = submitButton.classList.contains('edit-button') ? 'edit-button' : 'create-button';
+  const splittedPathname = window.location.pathname.split('/');
+  const currentUserId = splittedPathname[splittedPathname.length - 1];
   let isLoading = false;
 
   getSelectedStatus();
@@ -17,7 +19,7 @@
       const currentFieldNames = ['name', 'status'];
       const createTaskPayload = getPayload(currentFieldNames);
 
-      const response = await fetch("/task", {
+      const response = await fetch(`/users/${currentUserId}/tasks`, {
         method: "POST",
         body: JSON.stringify(createTaskPayload),
         headers: {
@@ -40,7 +42,7 @@
       const editTaskPayload = getPayload(currentFieldNames);
       const taskId = window.location.pathname.split('/')[3];
 
-      const response = await fetch(`/task/${taskId}`, {
+      const response = await fetch(`/tasks/${taskId}`, {
         method: "PUT",
         body: JSON.stringify(editTaskPayload),
         headers: {
@@ -49,8 +51,8 @@
       });
 
       if (response) {
-        handleResponse(response, 'Atividade editada com sucesso!');
         isLoading = false;
+        handleResponse(response, 'Atividade editada com sucesso!');
       }
     }
   }
@@ -78,7 +80,7 @@
     if (response.status === 200 || response.ok) {
       alert(successMessage);
       setTimeout(() => {
-        window.location.href = "http://localhost:8080/dashboard";
+        window.location.href = "http://localhost:8080/dashboard/" + currentUserId;
       }, 100);
     } else {
       alert('Houve um erro!');

@@ -1,6 +1,8 @@
 (function () {
   const removeButtons = document.querySelectorAll('.dashboard__profiles__card__icon--remove-icon');
   const editButtons = document.querySelectorAll('.dashboard__profiles__card__icon--edit-icon');
+  const splittedPathname = window.location.pathname.split('/');
+  const currentUserId = splittedPathname[splittedPathname.length - 1];
 
   removeButtons.forEach(removeButton => {
     removeButton.addEventListener('click', (event) => {
@@ -19,7 +21,7 @@
   })
 
   async function removeTask(taskId) {
-    const response = await fetch(`/task/${taskId}`, {
+    const response = await fetch(`/tasks/${taskId}`, {
       method: "DELETE",
       headers: {
         'Content-Type': 'application/json'
@@ -32,16 +34,14 @@
   }
 
   function editTask(taskId) {
-    if (taskId) {
-      window.location.href = `http://localhost:8080/dashboard/edit-task/${taskId}`;
-    }
+    if (taskId) { window.location.href = `http://localhost:8080/dashboard/edit-task/${taskId}/${currentUserId}`; }
   }
 
   function handleResponse(response) {
     if (response.status === 204 || response.ok) {
       alert('Atividade deletada com sucesso!');
       setTimeout(() => {
-        window.location.href = "http://localhost:8080/dashboard";
+        window.location.href = "http://localhost:8080/dashboard/" + currentUserId;
       }, 100);
     } else {
       alert('Houve um erro!');
